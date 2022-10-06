@@ -9,13 +9,18 @@ import SwiftUI
 import UserNotifications
 
 struct ResultsView: View {
-    
     var startDate: Date
     
-    var formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, dd MMM yyyy HH:mm"
-        return formatter
+    var timeFormatter: DateFormatter = {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        return timeFormatter
+    }()
+    
+    var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, dd MMM yyyy"
+        return dateFormatter
     }()
     
     var body: some View {
@@ -23,23 +28,36 @@ struct ResultsView: View {
             VStack {
                 Spacer()
                 
-                Text("\(formatter.string(from: startDate))")
+                Text("\(timeFormatter.string(from: startDate))")
                     .padding(.horizontal)
-                    .font(.title)
-//                    .padding()
-//                    .background(.black.opacity(0.70))
-//                    .foregroundColor(.white)
-//                    .clipShape(Capsule())
+                    .font(.system(size: 40, weight: .bold))
+                
+                Text("\(dateFormatter.string(from: startDate))")
+                    .padding(.horizontal)
+                    .font(.subheadline)
                       
-                
-                Spacer()
                 Spacer()
                 
-                Button("Schedule Notification") {
-                    NotificationManager.instance.scheduleNotification(startDate)
+                Spacer()
+                
+                VStack {
+                    Button(action: {
+                        NotificationManager.instance.scheduleNotification(startDate)
+                    }, label: {
+                        VStack {
+                            Text("Schedule Notification")
+                                .font(.system(size: 20, weight: .bold))
+                            
+                            Text("Let us remind you when to get started!")
+                                .font(.subheadline)
+                                
+                        }
+                    })
                 }
-                Text("Let us remind you when to get started!")
-                    .font(.caption)
+                .padding()
+                .background(.black.opacity(0.70))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
                 
                 Spacer()
             }
@@ -53,6 +71,8 @@ struct ResultsView: View {
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(startDate: Date())
+        NavigationView {
+            ResultsView(startDate: Date())
+        }
     }
 }

@@ -22,6 +22,7 @@ class ContentViewModel: ObservableObject {
     func startTime(date: Date, dough: Dough) -> Date {
         return date - (dough.provingDuration * 60 * 60)
     }
+    
 }
 
 

@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct PizzaDoughAppApp: App {
+    
+    @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
-            let dateHolder = DateHolder()
-            ContentView()
-                .environmentObject(dateHolder)
+            ContentView(userDough: "Nan's Dough", userProvingDuration: 8)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
+            
         }
     }
 }

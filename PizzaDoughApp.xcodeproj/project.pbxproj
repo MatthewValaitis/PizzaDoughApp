@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B53FFB9928ED7ABB009CF6B5 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFB9828ED7ABB009CF6B5 /* LocalNotifications.swift */; };
+		B53FFBBD28EDF659009CF6B5 /* UserDoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBBC28EDF659009CF6B5 /* UserDoughView.swift */; };
+		B53FFBC028EDFA26009CF6B5 /* Dough.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */; };
+		B53FFBC228EEDF9A009CF6B5 /* CustomDoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */; };
 		B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */; };
 		B5AF69F628EC42D400D18102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF69F528EC42D400D18102 /* ContentView.swift */; };
 		B5AF69F828EC42D400D18102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AF69F728EC42D400D18102 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		B53FFB9828ED7ABB009CF6B5 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
+		B53FFBBC28EDF659009CF6B5 /* UserDoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDoughView.swift; sourceTree = "<group>"; };
+		B53FFBBF28EDFA26009CF6B5 /* Dough.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dough.xcdatamodel; sourceTree = "<group>"; };
+		B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoughView.swift; sourceTree = "<group>"; };
 		B5AF69F028EC42D400D18102 /* PizzaDoughApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDoughApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDoughAppApp.swift; sourceTree = "<group>"; };
 		B5AF69F528EC42D400D18102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +51,7 @@
 		B5AF69E728EC42D400D18102 = {
 			isa = PBXGroup;
 			children = (
+				B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */,
 				B5AF69F228EC42D400D18102 /* PizzaDoughApp */,
 				B5AF69F128EC42D400D18102 /* Products */,
 			);
@@ -63,8 +70,10 @@
 			children = (
 				B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */,
 				B5AF69F528EC42D400D18102 /* ContentView.swift */,
+				B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */,
 				B53FFB9828ED7ABB009CF6B5 /* LocalNotifications.swift */,
 				B5AF6A0A28EC676000D18102 /* ViewModel.swift */,
+				B53FFBBC28EDF659009CF6B5 /* UserDoughView.swift */,
 				B5AF6A0828EC5BB400D18102 /* ResultsView.swift */,
 				B5AF6A0528EC510B00D18102 /* Dough */,
 				B5AF6A0128EC463D00D18102 /* DateHolder.swift */,
@@ -165,8 +174,11 @@
 				B5AF69F628EC42D400D18102 /* ContentView.swift in Sources */,
 				B5AF6A0228EC463D00D18102 /* DateHolder.swift in Sources */,
 				B5AF6A0728EC515E00D18102 /* Dough.swift in Sources */,
+				B53FFBC228EEDF9A009CF6B5 /* CustomDoughView.swift in Sources */,
 				B5AF6A0B28EC676000D18102 /* ViewModel.swift in Sources */,
 				B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */,
+				B53FFBC028EDFA26009CF6B5 /* Dough.xcdatamodeld in Sources */,
+				B53FFBBD28EDF659009CF6B5 /* UserDoughView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +379,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B53FFBBF28EDFA26009CF6B5 /* Dough.xcdatamodel */,
+			);
+			currentVersion = B53FFBBF28EDFA26009CF6B5 /* Dough.xcdatamodel */;
+			path = Dough.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B5AF69E828EC42D400D18102 /* Project object */;
 }
