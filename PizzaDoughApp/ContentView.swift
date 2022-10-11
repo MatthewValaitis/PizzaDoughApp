@@ -12,14 +12,19 @@ import UserNotifications
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var doughs: FetchedResults<UserDough>
+    @FetchRequest(sortDescriptors: []) var doughs: FetchedResults<Dough>
     
     @ObservedObject var viewModel = ContentViewModel()
     @State var pizzaDay = Date()
-    @State var doughSelection = Dough(type: "Gluten free", provingDuration: 5.0, description: "")
+    @State var selectedDoughName: String = ""
+    @State var doughNames: [String] = []
+    @State var doughTimes: [Double] = []
+    @State private var addDoughViewPresented = false
+    private var selectedDough: Dough? {
+        doughs.first { $0.name == selectedDoughName }
+    }
     
-    @State var userDough: String
-    @State var userProvingDuration: Double
+//    private var provingTimeString: String { "\(selectedDough.provingDuration, specifier: "%.2f")" }
     
     
     var body: some View {
@@ -27,50 +32,61 @@ struct ContentView: View {
             Form {
                 DatePicker("Pizza day!", selection: $pizzaDay, in: Date()...)
                     .datePickerStyle(.automatic)
-                Picker("The dough", selection: $doughSelection) {
-                    ForEach(viewModel.doughTypes, id: \.self) { dough in
-                        Text(dough.type)
+                
+                Picker("The dough", selection: $selectedDoughName) {
+                    ForEach(doughNames, id: \.self) { name in
+                        Text(name)
+                        
                     }
                 }
                 
-                Section {
-                    TextField("your dough", text: $userDough)
-                    Stepper("Proving duration \(userProvingDuration)", value: $userProvingDuration, in: 1...24)
+                if let selectedDough = selectedDough {
+                    Text("Prep time is \(selectedDough.provingDuration, specifier: "%.2f") hours")
                     
                 }
                 
+            
+                
                 Section {
-                    NavigationLink {
-                        ResultsView(startDate: viewModel.startTime(date: pizzaDay, dough: doughSelection ))
-                    } label: {
-                        Text("When do we start!")
+                    
+                    if let selectedDough = selectedDough {
+                        NavigationLink {
+                            ResultsView(startDate: viewModel.startTime(date: pizzaDay, dough: selectedDough))
+                            
+                        } label: {
+                            Text("When do we start!")
+                        }
+                        
+                    }
+                    
+                    Button("Add your own recipe") {
+                        addDoughViewPresented = true
                     }
                 }
             }
-            .navigationTitle("Pizza Planner")
-//                Form {
-//                DatePicker("Pizza day!", selection: $viewModel.pizzaDay, in: Date()...)
-//                    Picker("The dough", selection: $viewModel.doughSelection) {
-//                        ForEach(viewModel.doughTypes, id: \.self) { dough in
-//                            Text(dough.type)
-//                        }
-//                    }
-//
-//                    Section {
-//                        NavigationLink {
-//                            ResultsView(pizzaDough: ContentViewModel())
-//                        } label: {
-//                            Text("When do we start!")
-//                        }
-//                    }
-//                }
-//                .navigationTitle("Lets set a date")
+            .onAppear {
+                setDoughNames()
+            }
+            .navigationTitle("Pizza Planner").frame(alignment: .center)
+            .sheet(isPresented: $addDoughViewPresented) {
+                CustomDoughView()
+            }
+            .onChange(of: addDoughViewPresented) { _ in
+                setDoughNames()
+            }
         }
     }
+    
+    func setDoughNames() {
+        doughNames = doughs.map {
+            $0.name ?? "Unknown Name"
+        }
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(userDough: "Nan's dough", userProvingDuration: 8)
+        ContentView()
     }
 }

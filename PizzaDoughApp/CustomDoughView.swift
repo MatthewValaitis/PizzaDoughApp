@@ -9,25 +9,75 @@ import CoreData
 import SwiftUI
 
 struct CustomDoughView: View {
+    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.managedObjectContext) private var moc
     
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var doughs: FetchedResults<UserDough>
-    
-    @State var userDough: String
-    @State var userProvingDuration: Double
+    @State private var userDough = ""
+    @State private var userProvingDuration = ""
+    @State private var userDescription = ""
     
     var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Button("dismiss") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .padding()
+            }
+            doughForm
+        }
+    }
+    var doughForm: some View {
         Form {
             Section {
-                TextField("your dough", text: $userDough)
-                Stepper("Proving duration \(userProvingDuration)", value: $userProvingDuration, in: 1...24)
-                
-                Button("Add") {
+                HStack {
+                    Text("Dough name")
+                        .frame(maxWidth: .infinity)
                     
-                    let customDough = UserDough(context: moc)
-                    customDough.id = UUID()
-                    customDough.type = userDough
-                    customDough.provingDuration = userProvingDuration
+                    Divider()
+                    
+                    TextField("name", text: $userDough)
+                        .frame(maxWidth: .infinity)
+                }
+                
+                HStack {
+                    Text("Proving duration")
+                        .frame(maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    TextField("duration", text: $userProvingDuration)
+                        .keyboardType(.decimalPad)
+                        .frame(maxWidth: .infinity)
+                }
+                
+                HStack {
+                    Text("Your description")
+                        .frame(maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    TextField("description", text: $userDescription)
+                        .frame(maxWidth: .infinity)
+                }
+                
+                if userDough.isEmpty == false && userProvingDuration.isEmpty == false {
+                    
+                    Button("Add") {
+                        let customDough = Dough(context: moc)
+                        customDough.id = UUID()
+                        customDough.name = userDough
+                        customDough.provingDuration = Double(userProvingDuration) ?? 0.0
+                        customDough.additionalInfo = userDescription
+                        
+                        if moc.hasChanges {
+                            try? moc.save()
+                        }
+                        
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    
                 }
                 
             }
@@ -37,6 +87,6 @@ struct CustomDoughView: View {
 
 struct CustomDoughView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDoughView(userDough: "Nan's", userProvingDuration: 8 )
+        CustomDoughView()
     }
 }

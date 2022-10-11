@@ -9,6 +9,9 @@ import SwiftUI
 import UserNotifications
 
 struct ResultsView: View {
+    
+    @State private var showingAlert = false
+    
     var startDate: Date
     
     var timeFormatter: DateFormatter = {
@@ -43,16 +46,20 @@ struct ResultsView: View {
                 VStack {
                     Button(action: {
                         NotificationManager.instance.scheduleNotification(startDate)
+                        showingAlert = true
                     }, label: {
                         VStack {
                             Text("Schedule Notification")
                                 .font(.system(size: 20, weight: .bold))
                             
-                            Text("Let us remind you when to get started!")
+                            Text("Reminder when to start!")
                                 .font(.subheadline)
                                 
                         }
                     })
+                    .alert("Notification scheduled!", isPresented: $showingAlert) {
+                          Button("OK") { }
+                    }
                 }
                 .padding()
                 .background(.black.opacity(0.70))
@@ -65,7 +72,7 @@ struct ResultsView: View {
                 NotificationManager.instance.requestAuthorization()
             }
         }
-        .navigationTitle("Your start time")
+        .navigationTitle("Your start time ")
     }
 }
 

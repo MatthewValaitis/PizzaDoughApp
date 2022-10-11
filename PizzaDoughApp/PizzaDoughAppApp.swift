@@ -12,9 +12,15 @@ struct PizzaDoughAppApp: App {
     
     @StateObject private var dataController = DataController()
     
+//    let defaultDoughs = [ Dough(type: "Neapolitan", provingDuration: 12.0, description: ""),
+//                          Dough(type: "Biga", provingDuration: 18.0, description: ""),
+//                          Dough(type: "Sourdough", provingDuration: 24.0, description: ""),
+//                          Dough(type: "Gluten Free", provingDuration: 5.0, description: ""),
+//                          Dough(type: "Sicilian", provingDuration: 12.0, description: "") ]
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(userDough: "Nan's Dough", userProvingDuration: 8)
+            MainView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
             
         }

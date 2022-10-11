@@ -8,33 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		B53FFB9928ED7ABB009CF6B5 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFB9828ED7ABB009CF6B5 /* LocalNotifications.swift */; };
-		B53FFBBD28EDF659009CF6B5 /* UserDoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBBC28EDF659009CF6B5 /* UserDoughView.swift */; };
 		B53FFBC028EDFA26009CF6B5 /* Dough.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */; };
 		B53FFBC228EEDF9A009CF6B5 /* CustomDoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */; };
+		B53FFBC428EF0282009CF6B5 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBC328EF0282009CF6B5 /* DataController.swift */; };
+		B53FFBC628F46C49009CF6B5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBC528F46C49009CF6B5 /* MainView.swift */; };
+		B53FFBC828F47282009CF6B5 /* ScheduledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBC728F47282009CF6B5 /* ScheduledView.swift */; };
+		B53FFBCA28F476FE009CF6B5 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBC928F476FE009CF6B5 /* TopBarView.swift */; };
+		B53FFBCC28F482C5009CF6B5 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBCB28F482C5009CF6B5 /* ScheduleView.swift */; };
+		B53FFBCE28F57BA9009CF6B5 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBCD28F57BA9009CF6B5 /* CustomTabBar.swift */; };
+		B53FFBD128F587D4009CF6B5 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBD028F587D4009CF6B5 /* TabBarButton.swift */; };
 		B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */; };
 		B5AF69F628EC42D400D18102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF69F528EC42D400D18102 /* ContentView.swift */; };
 		B5AF69F828EC42D400D18102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AF69F728EC42D400D18102 /* Assets.xcassets */; };
 		B5AF69FB28EC42D400D18102 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AF69FA28EC42D400D18102 /* Preview Assets.xcassets */; };
 		B5AF6A0228EC463D00D18102 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF6A0128EC463D00D18102 /* DateHolder.swift */; };
-		B5AF6A0728EC515E00D18102 /* Dough.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF6A0628EC515E00D18102 /* Dough.swift */; };
 		B5AF6A0928EC5BB400D18102 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF6A0828EC5BB400D18102 /* ResultsView.swift */; };
-		B5AF6A0B28EC676000D18102 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF6A0A28EC676000D18102 /* ViewModel.swift */; };
+		B5AF6A0B28EC676000D18102 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF6A0A28EC676000D18102 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B53FFB9828ED7ABB009CF6B5 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
-		B53FFBBC28EDF659009CF6B5 /* UserDoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDoughView.swift; sourceTree = "<group>"; };
 		B53FFBBF28EDFA26009CF6B5 /* Dough.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dough.xcdatamodel; sourceTree = "<group>"; };
 		B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoughView.swift; sourceTree = "<group>"; };
+		B53FFBC328EF0282009CF6B5 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B53FFBC528F46C49009CF6B5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B53FFBC728F47282009CF6B5 /* ScheduledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledView.swift; sourceTree = "<group>"; };
+		B53FFBC928F476FE009CF6B5 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		B53FFBCB28F482C5009CF6B5 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		B53FFBCD28F57BA9009CF6B5 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		B53FFBD028F587D4009CF6B5 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		B5AF69F028EC42D400D18102 /* PizzaDoughApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDoughApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDoughAppApp.swift; sourceTree = "<group>"; };
 		B5AF69F528EC42D400D18102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5AF69F728EC42D400D18102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5AF69FA28EC42D400D18102 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5AF6A0128EC463D00D18102 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
-		B5AF6A0628EC515E00D18102 /* Dough.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dough.swift; sourceTree = "<group>"; };
 		B5AF6A0828EC5BB400D18102 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
-		B5AF6A0A28EC676000D18102 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		B5AF6A0A28EC676000D18102 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,10 +58,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B53FFBCF28F587A9009CF6B5 /* Custom Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				B53FFBCD28F57BA9009CF6B5 /* CustomTabBar.swift */,
+				B53FFBD028F587D4009CF6B5 /* TabBarButton.swift */,
+			);
+			path = "Custom Tab Bar";
+			sourceTree = "<group>";
+		};
 		B5AF69E728EC42D400D18102 = {
 			isa = PBXGroup;
 			children = (
-				B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */,
 				B5AF69F228EC42D400D18102 /* PizzaDoughApp */,
 				B5AF69F128EC42D400D18102 /* Products */,
 			);
@@ -68,17 +86,22 @@
 		B5AF69F228EC42D400D18102 /* PizzaDoughApp */ = {
 			isa = PBXGroup;
 			children = (
+				B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */,
 				B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */,
+				B53FFBC528F46C49009CF6B5 /* MainView.swift */,
 				B5AF69F528EC42D400D18102 /* ContentView.swift */,
+				B53FFBC928F476FE009CF6B5 /* TopBarView.swift */,
+				B53FFBC728F47282009CF6B5 /* ScheduledView.swift */,
+				B5AF6A0828EC5BB400D18102 /* ResultsView.swift */,
+				B53FFBCB28F482C5009CF6B5 /* ScheduleView.swift */,
+				B53FFBCF28F587A9009CF6B5 /* Custom Tab Bar */,
 				B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */,
 				B53FFB9828ED7ABB009CF6B5 /* LocalNotifications.swift */,
-				B5AF6A0A28EC676000D18102 /* ViewModel.swift */,
-				B53FFBBC28EDF659009CF6B5 /* UserDoughView.swift */,
-				B5AF6A0828EC5BB400D18102 /* ResultsView.swift */,
-				B5AF6A0528EC510B00D18102 /* Dough */,
+				B5AF6A0A28EC676000D18102 /* ContentViewModel.swift */,
 				B5AF6A0128EC463D00D18102 /* DateHolder.swift */,
 				B5AF69F728EC42D400D18102 /* Assets.xcassets */,
 				B5AF69F928EC42D400D18102 /* Preview Content */,
+				B53FFBC328EF0282009CF6B5 /* DataController.swift */,
 			);
 			path = PizzaDoughApp;
 			sourceTree = "<group>";
@@ -89,14 +112,6 @@
 				B5AF69FA28EC42D400D18102 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		B5AF6A0528EC510B00D18102 /* Dough */ = {
-			isa = PBXGroup;
-			children = (
-				B5AF6A0628EC515E00D18102 /* Dough.swift */,
-			);
-			path = Dough;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,14 +186,19 @@
 			files = (
 				B5AF6A0928EC5BB400D18102 /* ResultsView.swift in Sources */,
 				B53FFB9928ED7ABB009CF6B5 /* LocalNotifications.swift in Sources */,
+				B53FFBCE28F57BA9009CF6B5 /* CustomTabBar.swift in Sources */,
 				B5AF69F628EC42D400D18102 /* ContentView.swift in Sources */,
+				B53FFBC628F46C49009CF6B5 /* MainView.swift in Sources */,
 				B5AF6A0228EC463D00D18102 /* DateHolder.swift in Sources */,
-				B5AF6A0728EC515E00D18102 /* Dough.swift in Sources */,
 				B53FFBC228EEDF9A009CF6B5 /* CustomDoughView.swift in Sources */,
-				B5AF6A0B28EC676000D18102 /* ViewModel.swift in Sources */,
+				B53FFBC428EF0282009CF6B5 /* DataController.swift in Sources */,
+				B53FFBD128F587D4009CF6B5 /* TabBarButton.swift in Sources */,
+				B53FFBCC28F482C5009CF6B5 /* ScheduleView.swift in Sources */,
+				B5AF6A0B28EC676000D18102 /* ContentViewModel.swift in Sources */,
 				B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */,
+				B53FFBC828F47282009CF6B5 /* ScheduledView.swift in Sources */,
+				B53FFBCA28F476FE009CF6B5 /* TopBarView.swift in Sources */,
 				B53FFBC028EDFA26009CF6B5 /* Dough.xcdatamodeld in Sources */,
-				B53FFBBD28EDF659009CF6B5 /* UserDoughView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
