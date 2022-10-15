@@ -12,15 +12,15 @@ struct MainView: View {
     @State var selectedTab: Tabs = .planner
     
     var body: some View {
-        
-        if selectedTab == .planner {
-            
-            ContentView() } else if selectedTab == .schedule {
-                StartButtonView()
-            }
+        switch selectedTab {
+        case .planner:
+            PlannerView()
+        case .schedule:
+            Text("To be confirmed")
+//            DetailedScheduleView()
+        }
             
         Spacer()
-        
         CustomTabBar(selectedTab: $selectedTab)
         }
     }

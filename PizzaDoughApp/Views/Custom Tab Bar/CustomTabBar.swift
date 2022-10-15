@@ -15,37 +15,39 @@ enum Tabs: Int {
 struct CustomTabBar: View {
     
     @Binding var selectedTab: Tabs
+    @Namespace var selected
     
     var body: some View {
         HStack(alignment: .center) {
-                
-                Button {
-                    selectedTab = .planner
-                    
-                } label: {
-                    
-                    TabBarButton(buttonText: "Planner",
-                                 imageName: "arrowtriangle.down",
-                                 isActive: selectedTab == .planner)
-                    
-                }
-
+            
+            Button {
+                selectedTab = .planner
+            } label: {
+                TabBarButton(buttonText: "Planner",
+                             imageName: "arrowtriangle.down",
+                             isActive: selectedTab == .planner,
+                             selectedNameSpace: selected)
+            }
+            
             
             Button {
                 selectedTab = .schedule
-                
             } label: {
-                
                 TabBarButton(buttonText: "Schedule",
                              imageName: "calendar",
-                             isActive: selectedTab == .schedule)
+                             isActive: selectedTab == .schedule,
+                             selectedNameSpace: selected)
             }
-        
+            
         }
-        .frame(maxHeight: 82)
-        .tint(Color(red: 95/255, green: 116/255, blue: 112/255))
-        
-        
+        .frame(maxHeight: 68)
+        .tint(Color(.black))
+    }
+    
+    func select(_ tab: Tabs) {
+        withAnimation(.easeIn) {
+            selectedTab = tab
+        }
     }
 }
 

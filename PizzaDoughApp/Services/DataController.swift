@@ -12,14 +12,14 @@ class DataController: ObservableObject {
     
     let container = NSPersistentContainer(name: "Dough")
     
-    typealias DoughProperties = (type: String, provingDuration: Double, description: String, imageName: String)
+    typealias DoughProperties = (type: String, provingDuration: Double, description: String, imageName: String, formDoughBalls: Double, mixIngredients: Double)
     
     let defaultDoughs: [DoughProperties] = [
-        (type: "Neapolitan", provingDuration: 12.0, description: "", imageName: "Neapolitan"),
-        (type: "Biga", provingDuration: 18.0, description: "", imageName: "Biga"),
-        (type: "Sourdough", provingDuration: 24.0, description: "", imageName: "Sourdough"),
-        (type: "Gluten Free", provingDuration: 5.0, description: "", imageName: "Gluten Free"),
-        (type: "Sicilian", provingDuration: 12.0, description: "", imageName: "Sicilian")
+        (type: "Neapolitan", provingDuration: 12.0, description: "", imageName: "Neapolitan", formDoughBalls: 9.0, mixIngredients: 30),
+        (type: "Biga", provingDuration: 18.0, description: "", imageName: "Biga", formDoughBalls: 15.0, mixIngredients: 20),
+        (type: "Sourdough", provingDuration: 24.0, description: "", imageName: "Sourdough", formDoughBalls: 20.0, mixIngredients: 20),
+        (type: "Gluten Free", provingDuration: 5.0, description: "", imageName: "Gluten Free", formDoughBalls: 1.0, mixIngredients: 25),
+        (type: "Sicilian", provingDuration: 12.0, description: "", imageName: "Sicilian", formDoughBalls: 9, mixIngredients: 35)
     ]
     private let hasSetUserDefaultsKey = "hasSetUserDefaultsKey"
     
@@ -43,7 +43,8 @@ class DataController: ObservableObject {
             dough.additionalInfo = doughProperties.description
             dough.id = UUID()
             dough.imageName = doughProperties.imageName
-
+            dough.formDoughBallsMinutes = doughProperties.formDoughBalls
+            dough.mixIngredientsMinutes = doughProperties.mixIngredients
         }
         
         do {

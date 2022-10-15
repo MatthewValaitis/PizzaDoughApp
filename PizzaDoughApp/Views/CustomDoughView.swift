@@ -15,6 +15,8 @@ struct CustomDoughView: View {
     @State private var userDough = ""
     @State private var userProvingDuration = ""
     @State private var userDescription = ""
+    @State private var userDoughBallTime = 1
+    @State private var userMixingIngredients = 1
     
     var body: some View {
         VStack {
@@ -32,23 +34,12 @@ struct CustomDoughView: View {
         Form {
             Section {
                 HStack {
-                    Text("Dough name")
+                    Text("Dough name *")
                         .frame(maxWidth: .infinity)
                     
                     Divider()
                     
                     TextField("name", text: $userDough)
-                        .frame(maxWidth: .infinity)
-                }
-                
-                HStack {
-                    Text("Proving duration")
-                        .frame(maxWidth: .infinity)
-                    
-                    Divider()
-                    
-                    TextField("duration", text: $userProvingDuration)
-                        .keyboardType(.decimalPad)
                         .frame(maxWidth: .infinity)
                 }
                 
@@ -62,6 +53,44 @@ struct CustomDoughView: View {
                         .frame(maxWidth: .infinity)
                 }
                 
+                
+                
+                HStack {
+                    
+                    Picker("Combining ingredients", selection: $userMixingIngredients) {
+                        ForEach(1..<61) { i in
+                            Text("\(i)").tag(i)
+                        }
+                    }
+                    Text("minutes")
+                }
+                
+                
+                HStack {
+                    Text("Proving duration *")
+                        .frame(maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    TextField("hours", text: $userProvingDuration)
+                        .keyboardType(.decimalPad)
+                        .frame(maxWidth: .infinity)
+                }
+
+                
+                
+                HStack {
+                    
+                    Picker("Dividing doughballs", selection: $userDoughBallTime) {
+                        ForEach(1..<61) { i in
+                            Text("\(i)").tag(i)
+                        }
+                    }
+                    Text("minutes")
+                }
+                
+                
+
                 if userDough.isEmpty == false && userProvingDuration.isEmpty == false {
                     
                     Button("Add") {
@@ -70,6 +99,10 @@ struct CustomDoughView: View {
                         customDough.name = userDough
                         customDough.provingDuration = Double(userProvingDuration) ?? 0.0
                         customDough.additionalInfo = userDescription
+                        customDough.mixIngredientsMinutes = Double(userMixingIngredients)
+                        customDough.formDoughBallsMinutes = Double(userDoughBallTime)
+                        
+                        print("New Custom Dough:", customDough)
                         
                         if moc.hasChanges {
                             try? moc.save()
