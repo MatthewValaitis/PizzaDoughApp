@@ -128,7 +128,7 @@ struct PlannerView: View {
             Divider()
                         
             VStack {
-                Text("\(String(dough.provingDuration)) hrs")
+                Text(dough.totalMinutes.minutesToTimeString)
                     .font(.system(size: 15, weight: .bold))
                     .foregroundColor(.gray)
                 

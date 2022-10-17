@@ -9,7 +9,7 @@ import Foundation
 
 class PlannerViewModel: ObservableObject {
     func startTime(date: Date, dough: Dough) -> Date {
-        return date - dough.totalMinutes
+        return date - dough.totalMinutes * 60
     }
     
 //    func doughBallTime(date: Date, provingTime: Double, dough: Dough) -> Date {
@@ -18,8 +18,4 @@ class PlannerViewModel: ObservableObject {
 }
 
 
-fileprivate extension Dough {
-    var totalMinutes: Double {
-        (provingDuration * 60 * 60) + (formDoughBallsMinutes + mixIngredientsMinutes) * 60
-    }
-}
+

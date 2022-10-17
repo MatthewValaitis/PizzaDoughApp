@@ -18,6 +18,8 @@
 		B53FFBD728F80779009CF6B5 /* DetailedScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBD628F80779009CF6B5 /* DetailedScheduleView.swift */; };
 		B53FFBDD28F8660C009CF6B5 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBDC28F8660C009CF6B5 /* TimelineView.swift */; };
 		B53FFBDF28F86AC6009CF6B5 /* Double+timeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBDE28F86AC6009CF6B5 /* Double+timeString.swift */; };
+		B53FFBE128FC330D009CF6B5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBE028FC330D009CF6B5 /* Helpers.swift */; };
+		B53FFBE328FC390C009CF6B5 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBE228FC390C009CF6B5 /* TimelineViewModel.swift */; };
 		B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */; };
 		B5AF69F828EC42D400D18102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AF69F728EC42D400D18102 /* Assets.xcassets */; };
 		B5AF69FB28EC42D400D18102 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AF69FA28EC42D400D18102 /* Preview Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		B53FFBD628F80779009CF6B5 /* DetailedScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedScheduleView.swift; sourceTree = "<group>"; };
 		B53FFBDC28F8660C009CF6B5 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		B53FFBDE28F86AC6009CF6B5 /* Double+timeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+timeString.swift"; sourceTree = "<group>"; };
+		B53FFBE028FC330D009CF6B5 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		B53FFBE228FC390C009CF6B5 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		B5AF69F028EC42D400D18102 /* PizzaDoughApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDoughApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDoughAppApp.swift; sourceTree = "<group>"; };
 		B5AF69F728EC42D400D18102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				B5AF6A0A28EC676000D18102 /* PlannerViewModel.swift */,
+				B53FFBE228FC390C009CF6B5 /* TimelineViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 			children = (
 				B53FFBC328EF0282009CF6B5 /* DataController.swift */,
 				B53FFB9828ED7ABB009CF6B5 /* NotificationManager.swift */,
+				B53FFBE028FC330D009CF6B5 /* Helpers.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -218,6 +224,7 @@
 				B53FFB9928ED7ABB009CF6B5 /* NotificationManager.swift in Sources */,
 				B53FFBCE28F57BA9009CF6B5 /* CustomTabBar.swift in Sources */,
 				B53FFBC628F46C49009CF6B5 /* MainView.swift in Sources */,
+				B53FFBE328FC390C009CF6B5 /* TimelineViewModel.swift in Sources */,
 				B53FFBC228EEDF9A009CF6B5 /* CustomDoughView.swift in Sources */,
 				B53FFBC428EF0282009CF6B5 /* DataController.swift in Sources */,
 				B53FFBD128F587D4009CF6B5 /* TabBarButton.swift in Sources */,
@@ -226,6 +233,7 @@
 				B5AF6A0B28EC676000D18102 /* PlannerViewModel.swift in Sources */,
 				B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */,
 				B53FFBDF28F86AC6009CF6B5 /* Double+timeString.swift in Sources */,
+				B53FFBE128FC330D009CF6B5 /* Helpers.swift in Sources */,
 				B53FFBC028EDFA26009CF6B5 /* Dough.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

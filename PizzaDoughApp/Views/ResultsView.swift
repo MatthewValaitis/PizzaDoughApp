@@ -17,6 +17,7 @@ struct ResultsView: View {
     var body: some View {
         NavigationView {
             VStack {
+            
                 
                 TimelineView(dough: dough, startDate: startDate)
                 
@@ -24,6 +25,7 @@ struct ResultsView: View {
                 
                 setNotificationButton
                     .padding()
+                    .padding(.bottom, 10)
             }
             .onAppear {
                 NotificationManager.instance.requestAuthorization()

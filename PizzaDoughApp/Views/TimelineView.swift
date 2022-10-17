@@ -10,6 +10,8 @@ import SwiftUI
 // TODO: Display end time for each step rather than duration
 
 struct TimelineView: View {
+    private let viewModel: TimelineViewModel
+    
     @State private var showingAlert = false
     @State private var readyTime = Date()
     
@@ -29,33 +31,49 @@ struct TimelineView: View {
         return dateFormatter
     }()
     
+    init(dough: Dough, startDate: Date) {
+        self.dough = dough
+        self.startDate = startDate
+        viewModel = TimelineViewModel(dough: dough, startDate: startDate)
+    }
+    
     var body: some View {
+        
         VStack {
             
             Image("timelineTitle")
                 .padding(.bottom)
             
-            ScrollView {
-                GeometryReader { proxy in
-                    VStack(alignment: .center) {
-                        
-                        
-                        startTimeView
-                        
-                        intervalDividerView
-                        
-                        getTimeIntervalView(title: "Mix Ingredients", minutes: dough.mixIngredientsMinutes)
-                        
-                        intervalDividerView
-                        
-                        getTimeIntervalView(title: "Proving Time", minutes: dough.provingDuration * 60)
-                        
-                        intervalDividerView
-                        
-                        getTimeIntervalView(title: "Form Dough Balls", minutes: dough.formDoughBallsMinutes)
-                    }
-                    .frame(width: proxy.size.width)
+            Rectangle()
+                .frame(height: 1)
+                .frame(maxWidth: .infinity)
+                .foregroundColor(.gray)
+                .padding(.top)
+            
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .center) {
+                    
+                    
+                    
+                    
+                    startTimeView
+                    
+                    intervalDividerView
+                    
+                    getTimeIntervalView(title: "Mix Ingredients", minutes: dough.mixIngredientsMinutes, startDate: startDate)
+                    
+                    intervalDividerView
+                    
+                    getTimeIntervalView(title: "Proving Time", minutes: dough.provingDuration * 60, startDate: viewModel.provingStartDate)
+                    
+                    intervalDividerView
+                    
+                    getTimeIntervalView(title: "Form Dough Balls", minutes: dough.formDoughBallsMinutes, startDate: viewModel.formBallsStartDate)
+                    
+                    
+                    
                 }
+                
             }
         }
     }
@@ -67,9 +85,16 @@ struct TimelineView: View {
     }
     
     var startTimeView: some View {
-        HStack {
-            Text("Your Start Time:")
-                .font(.system(size: 20, weight: .heavy))
+        VStack {
+            HStack {
+                
+                
+                Text("Your Start Time")
+                    .font(.system(size: 16, weight: .heavy, design: .monospaced))
+                    .foregroundColor(.red)
+                
+                
+            }
             
             VStack {
                 Text("\(timeFormatter.string(from: startDate))")
@@ -82,21 +107,26 @@ struct TimelineView: View {
             }
         }
         .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color(red: 224/255, green: 216/255, blue: 219/255))
-        }
+        .background(
+            RoundedRectangle(cornerRadius: 4)
+                .fill(Color(red: 228/255, green: 228/255, blue: 228/255))
+                .shadow(radius: 2, x: 0, y: 3))
+
     }
     
-    func getTimeIntervalView(title: String, minutes: Double) -> some View {
+    func getTimeIntervalView(title: String, minutes: Double, startDate: Date) -> some View {
         VStack {
             Text(title)
                 .font(.system(size: 20, weight: .bold))
+
+            
+            Text("Start:\(timeFormatter.string(from: startDate))")
+                .foregroundColor(.red)
             
             Text("Duration: \(minutes.minutesToTimeString)")
+
         }
         .padding()
-        .frame(minHeight: 60)
         .background(
             RoundedRectangle(cornerRadius: 4)
                 .fill(Color(red: 228/255, green: 228/255, blue: 228/255))

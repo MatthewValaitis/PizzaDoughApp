@@ -11,11 +11,12 @@ import Foundation
 extension Double {
     var minutesToTimeString: String {
         let hours = (self / 60).rounded(.towardZero)
-        let hoursString = hours < 10 ? "0\(Int(hours))" : "\(Int(hours))"
+        let hoursString = "\(Int(hours))h "
         
         let mins = Int(self - (hours * 60))
-        let minsString = mins < 10 ? "0\(mins)" : "\(mins)"
+        let minsString = "\(mins)m"
         
-        return hoursString + ":" + minsString
+        return hoursString + minsString
     }
 }
+// 1h 10m
