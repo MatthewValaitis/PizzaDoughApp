@@ -19,7 +19,6 @@ struct CustomTabBar: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            
             Button {
                 selectedTab = .planner
             } label: {
@@ -29,7 +28,6 @@ struct CustomTabBar: View {
                              selectedNameSpace: selected)
             }
             
-            
             Button {
                 selectedTab = .schedule
             } label: {
@@ -37,8 +35,7 @@ struct CustomTabBar: View {
                              imageName: "calendar",
                              isActive: selectedTab == .schedule,
                              selectedNameSpace: selected)
-            }
-            
+            }   
         }
         .frame(maxHeight: 68)
         .tint(Color(.black))

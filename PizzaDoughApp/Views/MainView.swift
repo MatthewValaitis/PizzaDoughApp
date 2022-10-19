@@ -17,7 +17,6 @@ struct MainView: View {
             PlannerView()
         case .schedule:
             Text("To be confirmed")
-//            DetailedScheduleView()
         }
             
         Spacer()

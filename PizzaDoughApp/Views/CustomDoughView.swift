@@ -53,8 +53,6 @@ struct CustomDoughView: View {
                         .frame(maxWidth: .infinity)
                 }
                 
-                
-                
                 HStack {
                     
                     Picker("Combining ingredients", selection: $userMixingIngredients) {
@@ -64,8 +62,7 @@ struct CustomDoughView: View {
                     }
                     Text("minutes")
                 }
-                
-                
+                                
                 HStack {
                     Text("Proving duration *")
                         .frame(maxWidth: .infinity)
@@ -77,22 +74,17 @@ struct CustomDoughView: View {
                         .frame(maxWidth: .infinity)
                 }
 
-                
-                
                 HStack {
-                    
                     Picker("Dividing doughballs", selection: $userDoughBallTime) {
                         ForEach(1..<61) { i in
                             Text("\(i)").tag(i)
                         }
                     }
+                    
                     Text("minutes")
                 }
                 
-                
-
                 if userDough.isEmpty == false && userProvingDuration.isEmpty == false {
-                    
                     Button("Add") {
                         let customDough = Dough(context: moc)
                         customDough.id = UUID()
@@ -110,9 +102,7 @@ struct CustomDoughView: View {
                         
                         presentationMode.wrappedValue.dismiss()
                     }
-                    
                 }
-                
             }
         }
     }

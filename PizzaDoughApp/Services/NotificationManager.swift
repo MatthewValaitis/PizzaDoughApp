@@ -32,7 +32,6 @@ class NotificationManager {
         content.sound = .default
         content.badge = 1
         
-        
         let triggerDate = Calendar.current.dateComponents([.day, .month, .hour, .minute], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
         
@@ -53,9 +52,6 @@ struct LocalNotifications: View {
             Button("Request Permission") {
                 NotificationManager.instance.requestAuthorization()
             }
-//            Button("Schedule Notification") {
-//                NotificationManager.instance.scheduleNotification(pizzaDay)
-//            }
         }
         .onAppear {
             UIApplication.shared.applicationIconBadgeNumber = 0

@@ -38,9 +38,7 @@ struct TimelineView: View {
     }
     
     var body: some View {
-        
         VStack {
-            
             Image("timelineTitle")
                 .padding(.bottom)
             
@@ -52,10 +50,6 @@ struct TimelineView: View {
             
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .center) {
-                    
-                    
-                    
-                    
                     startTimeView
                     
                     intervalDividerView
@@ -69,11 +63,7 @@ struct TimelineView: View {
                     intervalDividerView
                     
                     getTimeIntervalView(title: "Form Dough Balls", minutes: dough.formDoughBallsMinutes, startDate: viewModel.formBallsStartDate)
-                    
-                    
-                    
                 }
-                
             }
         }
     }
@@ -87,13 +77,9 @@ struct TimelineView: View {
     var startTimeView: some View {
         VStack {
             HStack {
-                
-                
                 Text("Your Start Time")
                     .font(.system(size: 16, weight: .heavy, design: .monospaced))
                     .foregroundColor(.red)
-                
-                
             }
             
             VStack {

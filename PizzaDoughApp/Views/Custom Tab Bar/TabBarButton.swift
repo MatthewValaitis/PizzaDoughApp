@@ -15,9 +15,7 @@ struct TabBarButton: View {
     var selectedNameSpace: Namespace.ID
     
     var body: some View {
-        
         GeometryReader { geo in
-            
             if isActive {
                 Rectangle()
                     .foregroundColor(Color(red: 95/255, green: 116/255, blue: 112/255))
@@ -25,9 +23,7 @@ struct TabBarButton: View {
                     .padding(.leading, geo.size.width/4)
                     .matchedGeometryEffect(id: 1, in: selectedNameSpace)
             }
-            
-            
-            
+             
             VStack(alignment: .center, spacing: 4) {
                 
                 Image(systemName: imageName)
@@ -40,10 +36,3 @@ struct TabBarButton: View {
         }
     }
 }
-
-//struct TabBarButton_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        TabBarButton(buttonText: "Planner", imageName: "arrowtriangle.down", isActive: false, selectedNameSpace: )
-//    }
-//}

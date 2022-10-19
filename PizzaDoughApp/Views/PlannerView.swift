@@ -19,7 +19,6 @@ struct PlannerView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
                 Image("pizzaPlannerTitle")
                     .padding(.vertical, 4  )
                 
@@ -28,9 +27,7 @@ struct PlannerView: View {
                     .foregroundColor(.red)
                     .fontWeight(.bold)
 
-                
                 HStack {
-                    
                     Spacer(minLength: 20)
                     
                     Image(systemName: "arrow.right")
@@ -39,12 +36,7 @@ struct PlannerView: View {
                         .frame(width: 50, height: 40)
                     
                     readyTimeInputView
-                    
-                    
-
- 
                 }
-                
                 
                 Rectangle()
                     .frame(height: 1)
@@ -53,7 +45,6 @@ struct PlannerView: View {
                     .padding(.vertical)
                 
                 HStack {
-                    
                     Text("Select a dough")
                         .font(.system(size: 16, weight: .bold, design: .monospaced))
                         .padding(.leading)
@@ -72,13 +63,9 @@ struct PlannerView: View {
                                 .resizable()
                                 .frame(width: 22, height: 22)
                                 .foregroundColor(.gray)
-                                
-                            
                         }
                         .padding(.trailing, 14)
-                        
                     }
-                    
                 }
                 .padding(.top, 25)
                 
@@ -95,9 +82,6 @@ struct PlannerView: View {
     
     var readyTimeInputView: some View {
         HStack(alignment: .center) {
-                        
-
-            
             DatePicker("", selection: $readyForTime, in: Date()...)
                 .datePickerStyle(.automatic)
                 .frame(width: 230)

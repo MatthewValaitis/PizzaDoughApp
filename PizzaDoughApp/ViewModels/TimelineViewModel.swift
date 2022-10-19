@@ -9,8 +9,6 @@ import Foundation
 
 
 final class TimelineViewModel {
-    
-    
     private let dough: Dough
     private let startDate: Date
     var provingStartDate: Date {
@@ -20,7 +18,6 @@ final class TimelineViewModel {
     var formBallsStartDate: Date {
         provingStartDate + dough.provingDuration * 60 * 60
     }
-    
     
     
     init(dough: Dough, startDate: Date) {

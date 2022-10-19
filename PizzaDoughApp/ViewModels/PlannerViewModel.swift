@@ -11,10 +11,6 @@ class PlannerViewModel: ObservableObject {
     func startTime(date: Date, dough: Dough) -> Date {
         return date - dough.totalMinutes * 60
     }
-    
-//    func doughBallTime(date: Date, provingTime: Double, dough: Dough) -> Date {
-//        return date - dough.totalMinutes
-//    }
 }
 
 
