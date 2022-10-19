@@ -12,6 +12,8 @@ struct CustomDoughView: View {
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.managedObjectContext) private var moc
     
+    @ObservedObject private var viewModel = CustomDoughViewModel()
+    
     @State private var userDough = ""
     @State private var userProvingDuration = ""
     @State private var userDescription = ""
@@ -29,6 +31,9 @@ struct CustomDoughView: View {
             }
             doughForm
         }
+        .onAppear {
+            viewModel.createStep(moc: moc)
+        }
     }
     var doughForm: some View {
         Form {
@@ -36,81 +41,63 @@ struct CustomDoughView: View {
                 HStack {
                     Text("Dough name *")
                         .frame(maxWidth: .infinity)
-                    
+
                     Divider()
-                    
+
                     TextField("name", text: $userDough)
                         .frame(maxWidth: .infinity)
                 }
-                
+
                 HStack {
                     Text("Your description")
                         .frame(maxWidth: .infinity)
-                    
+
                     Divider()
-                    
+
                     TextField("description", text: $userDescription)
                         .frame(maxWidth: .infinity)
                 }
-                
-                
-                
-                HStack {
-                    
-                    Picker("Combining ingredients", selection: $userMixingIngredients) {
-                        ForEach(1..<61) { i in
-                            Text("\(i)").tag(i)
-                        }
-                    }
-                    Text("minutes")
-                }
-                
-                
-                HStack {
-                    Text("Proving duration *")
-                        .frame(maxWidth: .infinity)
-                    
-                    Divider()
-                    
-                    TextField("hours", text: $userProvingDuration)
-                        .keyboardType(.decimalPad)
-                        .frame(maxWidth: .infinity)
-                }
 
-                
-                
-                HStack {
+            }
+            Section {
+                Stepper(label: {
+                    Text("Add a step (\(viewModel.steps.count))")
+                }, onIncrement: {
+                    viewModel.createStep(moc: moc)
                     
-                    Picker("Dividing doughballs", selection: $userDoughBallTime) {
-                        ForEach(1..<61) { i in
-                            Text("\(i)").tag(i)
-                        }
+                }, onDecrement: {
+                    if viewModel.steps.count >= 1 {
+                        viewModel.deleteStep()
+                    } 
+                })
+                
+            }
+            
+            ForEach(viewModel.steps) { step in
+                Section {
+                    Button {
+                        viewModel.insertStep(at: step.index)
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
                     }
-                    Text("minutes")
+                    
+                    Text("Step \(step.index + 1)")
+                    TextField("name", text: viewModel.getStepNameBinding(for: Int(step.index)))
+                    TextField("duration minutes", text: viewModel.getDurationBinding(for: Int(step.index)))
+                        .keyboardType(.numberPad)
+                    Button {
+                        viewModel.insertStep(at: step.index + 1)
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                    }
                 }
+            }
+            
+            
+            if userDough.isEmpty == false {
                 
-                
-
-                if userDough.isEmpty == false && userProvingDuration.isEmpty == false {
-                    
-                    Button("Add") {
-                        let customDough = Dough(context: moc)
-                        customDough.id = UUID()
-                        customDough.name = userDough
-                        customDough.provingDuration = Double(userProvingDuration) ?? 0.0
-                        customDough.additionalInfo = userDescription
-                        customDough.mixIngredientsMinutes = Double(userMixingIngredients)
-                        customDough.formDoughBallsMinutes = Double(userDoughBallTime)
-                        
-                        print("New Custom Dough:", customDough)
-                        
-                        if moc.hasChanges {
-                            try? moc.save()
-                        }
-                        
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                    
+                Button("Add") {
+                    viewModel.saveDough(name: userDough, description: userDescription, moc: moc)
                 }
                 
             }

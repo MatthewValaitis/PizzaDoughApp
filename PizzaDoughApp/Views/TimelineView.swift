@@ -54,7 +54,7 @@ struct TimelineView: View {
                 VStack(alignment: .center) {
                     
                     
-                    
+            
                     
                     startTimeView
                     

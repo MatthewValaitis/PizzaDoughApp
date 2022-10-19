@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53835C728FEDFB40085E09D /* CustomDoughViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53835C628FEDFB40085E09D /* CustomDoughViewModel.swift */; };
 		B53FFB9928ED7ABB009CF6B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFB9828ED7ABB009CF6B5 /* NotificationManager.swift */; };
 		B53FFBC028EDFA26009CF6B5 /* Dough.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */; };
 		B53FFBC228EEDF9A009CF6B5 /* CustomDoughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */; };
@@ -20,6 +21,10 @@
 		B53FFBDF28F86AC6009CF6B5 /* Double+timeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBDE28F86AC6009CF6B5 /* Double+timeString.swift */; };
 		B53FFBE128FC330D009CF6B5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBE028FC330D009CF6B5 /* Helpers.swift */; };
 		B53FFBE328FC390C009CF6B5 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBE228FC390C009CF6B5 /* TimelineViewModel.swift */; };
+		B53FFBF028FD6C51009CF6B5 /* Dough+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBEC28FD6C51009CF6B5 /* Dough+CoreDataClass.swift */; };
+		B53FFBF128FD6C51009CF6B5 /* Dough+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBED28FD6C51009CF6B5 /* Dough+CoreDataProperties.swift */; };
+		B53FFBF228FD6C51009CF6B5 /* Step+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBEE28FD6C51009CF6B5 /* Step+CoreDataClass.swift */; };
+		B53FFBF328FD6C51009CF6B5 /* Step+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FFBEF28FD6C51009CF6B5 /* Step+CoreDataProperties.swift */; };
 		B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */; };
 		B5AF69F828EC42D400D18102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AF69F728EC42D400D18102 /* Assets.xcassets */; };
 		B5AF69FB28EC42D400D18102 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5AF69FA28EC42D400D18102 /* Preview Assets.xcassets */; };
@@ -28,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B53835C628FEDFB40085E09D /* CustomDoughViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoughViewModel.swift; sourceTree = "<group>"; };
 		B53FFB9828ED7ABB009CF6B5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B53FFBBF28EDFA26009CF6B5 /* Dough.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dough.xcdatamodel; sourceTree = "<group>"; };
 		B53FFBC128EEDF9A009CF6B5 /* CustomDoughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoughView.swift; sourceTree = "<group>"; };
@@ -41,6 +47,10 @@
 		B53FFBDE28F86AC6009CF6B5 /* Double+timeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+timeString.swift"; sourceTree = "<group>"; };
 		B53FFBE028FC330D009CF6B5 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		B53FFBE228FC390C009CF6B5 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		B53FFBEC28FD6C51009CF6B5 /* Dough+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dough+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B53FFBED28FD6C51009CF6B5 /* Dough+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dough+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B53FFBEE28FD6C51009CF6B5 /* Step+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B53FFBEF28FD6C51009CF6B5 /* Step+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B5AF69F028EC42D400D18102 /* PizzaDoughApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDoughApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AF69F328EC42D400D18102 /* PizzaDoughAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDoughAppApp.swift; sourceTree = "<group>"; };
 		B5AF69F728EC42D400D18102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +82,10 @@
 		B53FFBD828F864D3009CF6B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B53FFBEC28FD6C51009CF6B5 /* Dough+CoreDataClass.swift */,
+				B53FFBED28FD6C51009CF6B5 /* Dough+CoreDataProperties.swift */,
+				B53FFBEE28FD6C51009CF6B5 /* Step+CoreDataClass.swift */,
+				B53FFBEF28FD6C51009CF6B5 /* Step+CoreDataProperties.swift */,
 				B53FFBBE28EDFA26009CF6B5 /* Dough.xcdatamodeld */,
 			);
 			path = Models;
@@ -96,6 +110,7 @@
 			children = (
 				B5AF6A0A28EC676000D18102 /* PlannerViewModel.swift */,
 				B53FFBE228FC390C009CF6B5 /* TimelineViewModel.swift */,
+				B53835C628FEDFB40085E09D /* CustomDoughViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -222,14 +237,19 @@
 				B5AF6A0928EC5BB400D18102 /* ResultsView.swift in Sources */,
 				B53FFBDD28F8660C009CF6B5 /* TimelineView.swift in Sources */,
 				B53FFB9928ED7ABB009CF6B5 /* NotificationManager.swift in Sources */,
+				B53FFBF228FD6C51009CF6B5 /* Step+CoreDataClass.swift in Sources */,
 				B53FFBCE28F57BA9009CF6B5 /* CustomTabBar.swift in Sources */,
 				B53FFBC628F46C49009CF6B5 /* MainView.swift in Sources */,
+				B53835C728FEDFB40085E09D /* CustomDoughViewModel.swift in Sources */,
 				B53FFBE328FC390C009CF6B5 /* TimelineViewModel.swift in Sources */,
 				B53FFBC228EEDF9A009CF6B5 /* CustomDoughView.swift in Sources */,
+				B53FFBF128FD6C51009CF6B5 /* Dough+CoreDataProperties.swift in Sources */,
 				B53FFBC428EF0282009CF6B5 /* DataController.swift in Sources */,
 				B53FFBD128F587D4009CF6B5 /* TabBarButton.swift in Sources */,
+				B53FFBF328FD6C51009CF6B5 /* Step+CoreDataProperties.swift in Sources */,
 				B53FFBD728F80779009CF6B5 /* DetailedScheduleView.swift in Sources */,
 				B53FFBCC28F482C5009CF6B5 /* PlannerView.swift in Sources */,
+				B53FFBF028FD6C51009CF6B5 /* Dough+CoreDataClass.swift in Sources */,
 				B5AF6A0B28EC676000D18102 /* PlannerViewModel.swift in Sources */,
 				B5AF69F428EC42D400D18102 /* PizzaDoughAppApp.swift in Sources */,
 				B53FFBDF28F86AC6009CF6B5 /* Double+timeString.swift in Sources */,
@@ -363,6 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaDoughApp/Preview Content\"";
+				DEVELOPMENT_TEAM = UJSW47SUQ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSRemindersUsageDescription = "We need to remind you of your scheduled date.";
@@ -392,6 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaDoughApp/Preview Content\"";
+				DEVELOPMENT_TEAM = UJSW47SUQ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSRemindersUsageDescription = "We need to remind you of your scheduled date.";

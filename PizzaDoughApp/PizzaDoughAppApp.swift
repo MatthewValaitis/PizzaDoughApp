@@ -16,7 +16,6 @@ struct PizzaDoughAppApp: App {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
-            
         }
     }
 }
