@@ -19,89 +19,139 @@ struct CustomDoughView: View {
     @State private var userDescription = ""
     @State private var userDoughBallTime = 1
     @State private var userMixingIngredients = 1
+
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button("dismiss") {
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .padding()
+        ZStack {
+            VStack {
+                
+                Image("customRecipe")
+                    .padding(.vertical, 4  )
+                
+                Text("Create your steps.")
+                    .font(.system(size: 13, weight: .bold, design: .monospaced))
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+                
+                customStepView
             }
-            doughForm
-        }
-        .onAppear {
-            viewModel.createStep(moc: moc)
+            .onAppear {
+                viewModel.createStep(moc: moc)
+            }
+            if userDough.isEmpty == false {
+                VStack {
+                    Spacer()
+                    Button {
+                        viewModel.saveDough(name: userDough, description: userDescription, moc: moc)
+                    } label: {
+                        Spacer()
+                        HStack {
+                            Image(systemName: "note.text.badge.plus")
+                            Text("Add recipe")
+                        }
+                        .padding()
+                        .background(
+                            Capsule()
+                                .fill(.white)
+                                .shadow(radius: 2, x: 0, y: 3)
+                        )
+                    }
+                    .padding()
+                }
+            }
+            
         }
     }
-    var doughForm: some View {
-        Form {
-            Section {
-                HStack {
-                    Text("Dough name *")
-                        .frame(maxWidth: .infinity)
+    var customStepView: some View {
+        VStack {
+            ScrollView {
+                VStack {
 
-                    Divider()
-
-                    TextField("name", text: $userDough)
-                        .frame(maxWidth: .infinity)
-                }
-
-                HStack {
-                    Text("Your description")
-                        .frame(maxWidth: .infinity)
-
-                    Divider()
-
-                    TextField("description", text: $userDescription)
-                        .frame(maxWidth: .infinity)
-                }
-
-            }
-            Section {
-                Stepper(label: {
-                    Text("Add a step (\(viewModel.steps.count))")
-                }, onIncrement: {
-                    viewModel.createStep(moc: moc)
                     
-                }, onDecrement: {
-                    if viewModel.steps.count >= 1 {
-                        viewModel.deleteStep()
-                    } 
-                })
+                    customStepTextField(title: "Dough name *", fieldtext: "name", binding: $userDough)
+                    
+                    customStepTextField(title: "Your description", fieldtext: "description", binding: $userDescription)
+                    
+                }
+                .background(
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(.white)
+                        .shadow(radius: 2, x: 0, y: 3)
+                )
+                .padding()
                 
-            }
-            
-            ForEach(viewModel.steps) { step in
+                
+                
                 Section {
-                    Button {
-                        viewModel.insertStep(at: step.index)
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                    }
+                    Stepper(label: {
+                        Text("Add a step (\(viewModel.steps.count))")
+                    }, onIncrement: {
+                        viewModel.createStep(moc: moc)
+                        
+                    }, onDecrement: {
+                        if viewModel.steps.count >= 1 {
+                            viewModel.deleteStep()
+                        }
+                    })
                     
-                    Text("Step \(step.index + 1)")
-                    TextField("name", text: viewModel.getStepNameBinding(for: Int(step.index)))
-                    TextField("duration minutes", text: viewModel.getDurationBinding(for: Int(step.index)))
-                        .keyboardType(.numberPad)
-                    Button {
-                        viewModel.insertStep(at: step.index + 1)
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
+                }
+                .padding(.horizontal, 30)
+                
+                ForEach(viewModel.steps) { step in
+                    VStack {
+                        Button {
+                            viewModel.insertStep(at: step.index)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .padding(.vertical, 4)
+                        }
+                        
+                        VStack {
+                            
+                            Text("Step \(step.index + 1)")
+                                .font(.system(size: 20, weight: .bold))
+                            
+                            customStepTextField(title: "Description", fieldtext: "Your step", binding: viewModel.getStepNameBinding(for: Int(step.index)))
+                            customStepTextField(title: "Duration", fieldtext: "minutes", binding: viewModel.getDurationBinding(for: Int(step.index)))
+                            
+                        }
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 4)
+                                .fill(.white)
+                                .shadow(radius: 2, x: 0, y: 3)
+                        )
+                        .padding(.horizontal)
+                        
+                        Button {
+                            viewModel.insertStep(at: step.index + 1)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .padding(.vertical, 4)
+                        }
                     }
                 }
-            }
-            
-            
-            if userDough.isEmpty == false {
-                
-                Button("Add") {
-                    viewModel.saveDough(name: userDough, description: userDescription, moc: moc)
-                }
-                
+                Spacer(minLength: 50
+                )
+
             }
         }
+        .background(Color(red: 228/255, green: 228/255, blue: 228/255))
+        
+    }
+    
+    func customStepTextField(title: String, fieldtext: String, binding: Binding<String>) -> some View {
+            HStack {
+                Text(title)
+                    .frame(maxWidth: .infinity)
+                
+                Divider()
+                
+                TextField(fieldtext, text: binding)
+                    .frame(maxWidth: .infinity)
+            }
+            .padding()
+            .frame(maxHeight: 200)
     }
 }
 

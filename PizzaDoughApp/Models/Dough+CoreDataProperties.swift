@@ -17,13 +17,23 @@ extension Dough {
     }
 
     @NSManaged public var additionalInfo: String?
-    @NSManaged public var formDoughBallsMinutes: Double
     @NSManaged public var id: UUID?
     @NSManaged public var imageName: String?
-    @NSManaged public var mixIngredientsMinutes: Double
     @NSManaged public var name: String?
     @NSManaged public var provingDuration: Double
     @NSManaged public var steps: NSSet?
+    
+    public var wrappedName: String {
+        name ?? "Unknown Dough"
+    }
+    
+    public var stepsArray: [Step] {
+        let set = steps as? Set<Step> ?? []
+        
+        return set.sorted {
+            $0.index < $1.index
+        }
+    }
 
 }
 

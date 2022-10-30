@@ -21,7 +21,7 @@ struct PlannerView: View {
             VStack {
                 
                 Image("pizzaPlannerTitle")
-                    .padding(.vertical, 4  )
+                    .padding(.vertical, 4 )
                 
                 Text("Set up your time to eat.")
                     .font(.system(size: 13, weight: .bold, design: .monospaced))
@@ -62,6 +62,7 @@ struct PlannerView: View {
                     
                     NavigationLink {
                         CustomDoughView()
+                        
                     } label: {
                         HStack(alignment: .center) {
                             Text("Add your own recipe")
@@ -108,6 +109,46 @@ struct PlannerView: View {
 
     }
     
+    func getStepCell(for step: Step) -> some View {
+        HStack {
+            Image("Neapolitan")
+                .resizable()
+                .scaledToFill()
+                .clipShape(Circle())
+                .frame(width: 60, height: 60)
+            
+            Spacer()
+            
+            Text(step.wrappedname)
+                .font(.headline)
+                .foregroundColor(.red)
+            
+            Spacer()
+            
+            Divider()
+                        
+            VStack {
+                Text(String(step.duration))
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.gray)
+                
+            }
+            .padding(.horizontal)
+            
+            Image(systemName: "chevron.forward")
+                .foregroundColor(.gray)
+                .padding(.trailing)
+            
+        }
+        .padding()
+        .frame(maxHeight: 200)
+        .background(
+            RoundedRectangle(cornerRadius: 4)
+                .fill(Color(red: 228/255, green: 228/255, blue: 228/255))
+                .shadow(radius: 2, x: 0, y: 3)
+        )
+        .padding(.horizontal)
+    }
     
     func getDoughCell(for dough: Dough) -> some View {
         HStack {

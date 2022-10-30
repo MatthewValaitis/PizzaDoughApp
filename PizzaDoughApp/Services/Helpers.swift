@@ -9,19 +9,31 @@ import Foundation
 import CoreData
 
 
+//extension Step {
+//    var totalMinutes: Double {
+//        let durations = dough?.provingDuration
+//        let sum = durations
+//    }
+//}
+
+
 extension Dough {
     var totalMinutes: Double {
-        (provingDuration * 60) + (formDoughBallsMinutes + mixIngredientsMinutes)
+        var totalMins: Double = 0
+        for step in stepsArray {
+            totalMins += step.duration
+        }
+        return totalMins
     }
+    
 }
+
 
 extension Dough {
     static func getDefaultDough(moc: NSManagedObjectContext) -> Dough {
         let dough = Dough(context: moc)
         dough.name = ""
-        dough.mixIngredientsMinutes = 0
         dough.provingDuration = 0
-        dough.formDoughBallsMinutes = 0
         
         let mixStep = Step(context: moc)
         mixStep.name = "Mix Ingredients"

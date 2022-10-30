@@ -13,14 +13,25 @@ final class TimelineViewModel {
     
     private let dough: Dough
     private let startDate: Date
-    var provingStartDate: Date {
-        startDate + dough.mixIngredientsMinutes * 60
-    }
+  
     
-    var formBallsStartDate: Date {
-        provingStartDate + dough.provingDuration * 60 * 60
+    func getStartDate(for stepIndex: Int) -> Date {
+        if stepIndex == 0 {
+            return startDate
+        }
+        
+        var totalMinutes = 0.0
+        
+        if stepIndex == 1 {
+            totalMinutes += dough.stepsArray[0].duration
+        } else {
+            for i in 0..<stepIndex {
+                totalMinutes += dough.stepsArray[i].duration
+            }
+        }
+        
+        return startDate + totalMinutes * 60
     }
-    
     
     
     init(dough: Dough, startDate: Date) {

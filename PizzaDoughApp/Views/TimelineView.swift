@@ -10,6 +10,11 @@ import SwiftUI
 // TODO: Display end time for each step rather than duration
 
 struct TimelineView: View {
+    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var doughs: FetchedResults<Dough>
+    
+    
     private let viewModel: TimelineViewModel
     
     @State private var showingAlert = false
@@ -37,8 +42,8 @@ struct TimelineView: View {
         viewModel = TimelineViewModel(dough: dough, startDate: startDate)
     }
     
+    
     var body: some View {
-        
         VStack {
             
             Image("timelineTitle")
@@ -53,27 +58,15 @@ struct TimelineView: View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .center) {
                     
-                    
-            
-                    
                     startTimeView
                     
-                    intervalDividerView
-                    
-                    getTimeIntervalView(title: "Mix Ingredients", minutes: dough.mixIngredientsMinutes, startDate: startDate)
-                    
-                    intervalDividerView
-                    
-                    getTimeIntervalView(title: "Proving Time", minutes: dough.provingDuration * 60, startDate: viewModel.provingStartDate)
-                    
-                    intervalDividerView
-                    
-                    getTimeIntervalView(title: "Form Dough Balls", minutes: dough.formDoughBallsMinutes, startDate: viewModel.formBallsStartDate)
-                    
-                    
-                    
+                    VStack {
+                        ForEach(dough.stepsArray, id: \.self) { step in
+                            intervalDividerView
+                            getTimeIntervalView(title: step.wrappedname, minutes: step.duration, startDate: viewModel.getStartDate(for: Int(step.index)))
+                        }
+                    }
                 }
-                
             }
         }
     }
@@ -87,13 +80,9 @@ struct TimelineView: View {
     var startTimeView: some View {
         VStack {
             HStack {
-                
-                
                 Text("Your Start Time")
                     .font(.system(size: 16, weight: .heavy, design: .monospaced))
                     .foregroundColor(.red)
-                
-                
             }
             
             VStack {
@@ -118,6 +107,7 @@ struct TimelineView: View {
         VStack {
             Text(title)
                 .font(.system(size: 20, weight: .bold))
+                .padding(.horizontal, 10)
 
             
             Text("Start:\(timeFormatter.string(from: startDate))")
@@ -127,6 +117,7 @@ struct TimelineView: View {
 
         }
         .padding()
+        .frame(maxWidth: 300)
         .background(
             RoundedRectangle(cornerRadius: 4)
                 .fill(Color(red: 228/255, green: 228/255, blue: 228/255))

@@ -21,6 +21,7 @@ struct MainView: View {
         }
             
         Spacer()
+        
         CustomTabBar(selectedTab: $selectedTab)
         }
     }

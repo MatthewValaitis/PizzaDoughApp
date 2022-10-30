@@ -52,13 +52,14 @@ final class CustomDoughViewModel: ObservableObject {
         customDough.id = UUID()
         customDough.name = name
         customDough.additionalInfo = description
-        
+
         
         var stepModels: [Step] = []
         for stepViewModel in steps {
             let step = Step(context: moc)
             step.name = stepViewModel.name
-            step.duration = Int32(stepViewModel.duration!)
+            step.duration = Double(stepViewModel.duration ?? 0)
+            
             step.index = Int16(stepViewModel.index)
             step.dough = customDough
             

@@ -17,9 +17,15 @@ extension Step {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var duration: Int32
+    @NSManaged public var duration: Double
     @NSManaged public var index: Int16
     @NSManaged public var dough: Dough?
+    
+    public var wrappedname: String {
+        name ?? "Unknown Step"
+    }
+
+    
 
 }
 
